@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.11.9 on win32)" generated="2024-09-19T08:38:10.801367" rpa="false" schemaversion="5">
+<suite id="s1" name="Checkout" source="C:\Users\Fadhel\PycharmProjects\SauceDemo\Tests\checkout.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:10.989868" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-19T08:38:10.989774" elapsed="1.756233"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-09-19T08:38:12.746007" elapsed="0.037311"/>
+</kw>
+<status status="PASS" start="2024-09-19T08:38:10.988687" elapsed="1.794631"/>
+</kw>
+<test id="s1-t1" name="User Checks Out Items From The Shopping Cart" line="13">
+<kw name="Given I am on the Sauce Demo login page">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:12.792294" level="INFO">Page title is 'Swag Labs'.</msg>
+<arg>Swag Labs</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-09-19T08:38:12.785313" elapsed="0.006981"/>
+</kw>
+<doc>Ensure we are on the login page.</doc>
+<status status="PASS" start="2024-09-19T08:38:12.785313" elapsed="0.006981"/>
+</kw>
+<kw name="When I log in with valid credentials">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:12.793318" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:12.793318" elapsed="0.090325"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:12.883643" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:12.883643" elapsed="0.063474"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:12.948114" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:12.947117" elapsed="0.079245"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=.title</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-09-19T08:38:13.026362" elapsed="0.021215"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:13.051567" level="INFO">${current_title} = Swag Labs</msg>
+<var>${current_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-09-19T08:38:13.047577" elapsed="0.003990"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-19T08:38:13.052563" level="INFO">Current Title: Swag Labs</msg>
+<arg>Current Title: ${current_title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-19T08:38:13.051567" elapsed="0.000996"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:13.070515" level="INFO">Element 'css=.title' is displayed.</msg>
+<arg>css=.title</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-09-19T08:38:13.052563" elapsed="0.017952"/>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:13.073507" level="INFO">Page title is 'Swag Labs'.</msg>
+<arg>Swag Labs</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="PASS" start="2024-09-19T08:38:13.070515" elapsed="0.002992"/>
+</kw>
+<status status="PASS" start="2024-09-19T08:38:12.792294" elapsed="0.281213"/>
+</kw>
+<kw name="And I add items to the cart">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-19T08:38:15.073685" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-19T08:38:13.073507" elapsed="2.000178"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//button[contains(@class, 'btn_primary')]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-09-19T08:38:15.074693" elapsed="0.025751"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:15.100444" level="INFO">Clicking button '//*[@id="add-to-cart-sauce-labs-backpack"]'.</msg>
+<arg>//*[@id="add-to-cart-sauce-labs-backpack"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:15.100444" elapsed="0.042087"/>
+</kw>
+<status status="PASS" start="2024-09-19T08:38:13.073507" elapsed="2.070023"/>
+</kw>
+<kw name="And I proceed to checkout">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-19T08:38:17.143863" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-19T08:38:15.143530" elapsed="2.000333"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//*[@id="shopping_cart_container"]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-09-19T08:38:17.144862" elapsed="0.011608"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-19T08:38:19.156701" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-19T08:38:17.156470" elapsed="2.000231"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:19.157696" level="INFO">Clicking element '//*[@id="shopping_cart_container"]'.</msg>
+<arg>//*[@id="shopping_cart_container"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:19.157696" elapsed="0.052093"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:19.210788" level="INFO">Clicking button '//*[@id="checkout"]'.</msg>
+<arg>//*[@id="checkout"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:19.209789" elapsed="0.054311"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:19.264100" level="INFO">Typing text 'John' into text field 'id=first-name'.</msg>
+<arg>id=first-name</arg>
+<arg>John</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:19.264100" elapsed="0.059933"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:19.324033" level="INFO">Typing text 'Doe' into text field 'id=last-name'.</msg>
+<arg>id=last-name</arg>
+<arg>Doe</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:19.324033" elapsed="0.053335"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:19.378366" level="INFO">Typing text '12345' into text field 'id=postal-code'.</msg>
+<arg>id=postal-code</arg>
+<arg>12345</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:19.377368" elapsed="0.056485"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:19.434851" level="INFO">Clicking button 'id=continue'.</msg>
+<arg>id=continue</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T08:38:19.433853" elapsed="0.047125"/>
+</kw>
+<status status="PASS" start="2024-09-19T08:38:15.143530" elapsed="4.337448"/>
+</kw>
+<kw name="Then I should see the checkout page">
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<msg time="2024-09-19T08:38:19.653095" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-09-19T08:38:19.653095" level="FAIL">Title should have been 'Checkout: Overview' but was 'Swag Labs'.</msg>
+<arg>Checkout: Overview</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="FAIL" start="2024-09-19T08:38:19.482000" elapsed="0.173089">Title should have been 'Checkout: Overview' but was 'Swag Labs'.</status>
+</kw>
+<status status="FAIL" start="2024-09-19T08:38:19.480978" elapsed="0.174111">Title should have been 'Checkout: Overview' but was 'Swag Labs'.</status>
+</kw>
+<kw name="When I complete the checkout">
+<status status="NOT RUN" start="2024-09-19T08:38:19.656062" elapsed="0.000000"/>
+</kw>
+<kw name="Then I should see the order confirmation">
+<status status="NOT RUN" start="2024-09-19T08:38:19.656062" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-09-19T08:38:12.784315" elapsed="6.871747">Title should have been 'Checkout: Overview' but was 'Swag Labs'.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-19T08:38:19.657090" elapsed="2.127465"/>
+</kw>
+<status status="FAIL" start="2024-09-19T08:38:10.803359" elapsed="10.981196"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Checkout">Checkout</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
